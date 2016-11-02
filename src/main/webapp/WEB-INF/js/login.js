@@ -2,7 +2,8 @@ $(function() {
 	$("#loginBtn").click(function() {
 		console.log("login");
 		var username = $("input[name=username]").val();
-		var password = hex_md5($("input[name=password]").val());
+		//var password = hex_md5($("input[name=password]").val());
+		var password = $("input[name=password]").val();
 		var user = {
 			"username" : username,
 			"password" : password
