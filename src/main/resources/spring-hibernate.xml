@@ -13,6 +13,17 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
 	
 	
 	<!-- 配置数据源 -->
+	<bean class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" id="dataSource">
+    <property name="driverClassName" value="${database.driverClassName}"/>
+    <property name="url" value="#{ 'jdbc:postgresql://' + dbUrl.getHost() + ':' + dbUrl.getPort() + dbUrl.getPath() }"/>
+    <property name="username" value="#{ dbUrl.getUserInfo().split(':')[0] }"/>
+    <property name="password" value="#{ dbUrl.getUserInfo().split(':')[1] }"/>
+    <property name="maxActive" value="10"/>
+    <property name="maxIdle" value="5"/>
+    <property name="minIdle" value="2"/>
+    <property name="initialSize" value="5"/>
+    <property name="removeAbandoned" value="true"/>
+    </bean>
 	<bean name="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
 		<property name="url" value="${jdbc_url}" />
 		<property name="username" value="${jdbc_username}" />
