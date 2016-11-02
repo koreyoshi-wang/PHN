@@ -28,7 +28,8 @@ public class UserController{
 	private IUserService userService;
 	
 	@ResponseBody
-	@RequestMapping(value="/login", method = RequestMethod.POST)
+	//@RequestMapping(value="/login", method = RequestMethod.POST)
+	@RequestMapping(value="/login")
 	public Map<String,Object> login( UserEntity user){
 		Map<String,Object> map = new HashMap<String,Object>();
 		System.out.println(user.toString());
