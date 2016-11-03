@@ -31,7 +31,7 @@
 
 	<servlet-mapping>
 		<servlet-name>springMVC</servlet-name>
-		<url-pattern>/*</url-pattern> <!-- 会拦截/的请求。 -->
+		<url-pattern>/</url-pattern> <!-- 会拦截/的请求。 -->
 	</servlet-mapping>
 
 
